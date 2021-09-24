@@ -5,10 +5,12 @@ import 'package:proj/core/app_images.dart';
 import 'login_screen.dart';
 
 class SingupScreen extends StatelessWidget {
+  final onLoginClick;
+
+  SingupScreen({this.onLoginClick});
+
   @override
   Widget build(BuildContext context) {
-    final nuvigator = Nuvigator.of(context);
-
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -75,7 +77,7 @@ class SingupScreen extends StatelessWidget {
               vertical: 10,
             ),
             child: GestureDetector(
-              onTap: () => nuvigator.open('login'),
+              onTap: () => onLoginClick,
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
