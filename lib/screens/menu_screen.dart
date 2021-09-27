@@ -39,10 +39,26 @@ class MenuScreen extends StatelessWidget {
               ),
               Divider(),
               OrgsMenuCard(
-                text: 'Perfil',
-                icon: Icons.person,
-                action: () => nuvigator.open('profile'),
-              ),
+                  text: 'Perfil',
+                  icon: Icons.person,
+                  action: () async {
+                    final result =
+                        await nuvigator.open('mvapp://profile?name=orgs');
+
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text("Rota encerrada"),
+                            content: Text("Valor retornado $result"),
+                            actions: [
+                              TextButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: Text('Fechar'))
+                            ],
+                          );
+                        });
+                  }),
               Divider(),
               OrgsMenuCard(
                 text: 'Métodos de pagamento',
