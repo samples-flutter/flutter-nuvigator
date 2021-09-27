@@ -23,6 +23,7 @@ class PackageDetailsRoute
   @override
   Widget build(
       BuildContext context, NuRouteSettings<PackageDetailsArgs> settings) {
+
     //Map<String, dynamic> com a linha de arqumentos passados para a rota
     print(settings.rawParameters);
 
